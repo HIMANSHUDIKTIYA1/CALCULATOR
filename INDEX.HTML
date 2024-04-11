@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my calculator </title>
+</head>
+<style>
+    #s1{
+        width: 50px;
+        height: 50px;
+    }
+    #result{
+        background-color: antiquewhite;
+        font-size: 35px;
+        border: 5px solid;
+      border-color: black;
+        width: 330px;
+        height: 50px;
+    }
+    input[type="button"]{
+        width: 100px;
+        height: 50px;
+  
+background-color: black;
+color:white;
+   }
+   .cal {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+   justify-content: center;
+  align-items: center;
+   
+    
+   }
+   table{
+    text-align: center;
+   }
+   body{
+    align-items: center;
+    background-color: beige;
+    text-align: center;
+   }
+   h1{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: yellow;
+    width: 417px;
+    color: color-mix(in srgb, red 40%, blue 60%);
+    border: 2px solid;
+    border-color: green;
+   }
+   
+</style>
+<body>
+   
+   
+    <div class="cal">
+ 
+        <h1 >HD CALCULATOR </h1>
+<table id="calculator-input" border="0">
+    <tr ><td   colspan="3"><input type="text" id="result"> </td>
+        <td><input type="button" id="s1" value="c" onclick="clr()"></td>
+    </tr>
+<tr>
+    <td><input type="button" value="1" onclick="display('1')"></td>
+    <td><input type="button" value="2" onclick="display('2')"></td>
+    <td><input type="button" value="3" onclick="display('3')"></td>
+    <td><input type="button" value="/" id="s1" onclick="display('/')"></td>
+</tr>
+<tr>    
+        <td><input type="button" value="4" onclick="display('4')"></td>
+        <td><input type="button" value="5" onclick="display('5')"></td>
+        <td><input type="button" value="6" onclick="display('6')"></td>
+        <td><input type="button" value="-" id="s1" onclick="display('-')"></td>
+</tr>
+ <tr>       
+            <td><input type="button" value="7" onclick="display('7')"></td>
+            <td><input type="button" value="8" onclick="display('8')"></td>
+            <td><input type="button" value="9" onclick="display('9')"></td>
+            <td><input type="button" value="+" id="s1" onclick="display('+')"></td>
+        
+</tr>
+ <tr>           
+                 <td><input type="button" value="." onclick="display('.')"></td>
+                <td><input type="button" value="0" onclick="display('0')"></td>
+                <td><input type="button" value="=" onclick="equate()"></td>
+                <td><input type="button" value="*" id="s1" onclick="display('*')"></td>
+            
+            
+</tr>
+                        
+</table>
+</div>
+
+
+    
+<script>
+    const inputField = document.getElementById('calculator-input');
+
+    inputField.addEventListener('keydown', blockAlpha);
+
+    function blockAlpha(event) {
+        const keyCode = event.keyCode || event.which;
+        if ((keyCode >= 48 && keyCode <= 60) || (keyCode >= 96 && keyCode <= 109) || keyCode === 8 || keyCode === 46) {
+            // Allow numeric keys (0-9), numpad keys (0-9), backspace, and delete
+        } else {
+            event.preventDefault();
+        }
+    }
+</script>
+<script >
+    function clr(){
+        document.getElementById("result").value=""; 
+    }
+    function display(val){
+        document.getElementById("result").value+=val;
+    }
+    function equate() {
+        let x= document.getElementById("result").value;
+        let y = eval(x);
+        document.getElementById("result").value = y
+    }
+    
+    
+</script>
+
+
+</body>
+</html>
